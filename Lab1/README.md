@@ -22,3 +22,7 @@ python main.py
 возвращается к исходному текстовому виду через label.clear() и setText.
 
 Изображение окна:
+
+<img width="358" height="440" alt="image" src="https://github.com/user-attachments/assets/cb6c1922-14c9-4c4a-bc30-5d6444fb10c9" />
+
+<img width="361" height="448" alt="image" src="https://github.com/user-attachments/assets/49b12bf8-a4be-46f9-a446-edc486335f58" />
