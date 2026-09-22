@@ -3,7 +3,9 @@
 
 Файлы проекта:
     main.py  - главное окно (этот файл)
+    
     cl1.py   - класс Celsius с сигналом celsiusChanged
+    
     cl2.py   - класс Fahrenheit с сигналом fahrenheitChanged
 
 Запуск:
