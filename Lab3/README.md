@@ -17,7 +17,7 @@ python Lab3.py
 Функциональность:
 Set connection - выбор и открытие SQLite-базы через QFileDialog;
 
-Close connection — закрытие подключения и очистка таблиц;
+Close connection - закрытие подключения и очистка таблиц;
 
 Tab1 - таблица sqlite_master после подключения;
 
