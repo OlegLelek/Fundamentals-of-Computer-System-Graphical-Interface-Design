@@ -2,13 +2,15 @@
 Выполнил: Козлов Олег Антонович гр. 6231-010402D
 
 Файлы проекта:
-    main.py  - главное окно (этот файл)
+
+    main.py  - главное окно
     
     cl1.py   - класс Celsius с сигналом celsiusChanged
     
     cl2.py   - класс Fahrenheit с сигналом fahrenheitChanged
 
 Запуск:
+
     python main.py
     
 Описание файла cl1.py
