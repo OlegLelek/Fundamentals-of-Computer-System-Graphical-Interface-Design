@@ -6,7 +6,6 @@ from PyQt5.QtWidgets import (
 )
 from PyQt5.QtSql import QSqlDatabase, QSqlQuery
 
-
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -40,11 +39,9 @@ class MainWindow(QMainWindow):
         self.tabs = QTabWidget()
         main_layout.addWidget(self.tabs)
 
-        # Tab1 — результат SELECT * FROM sqlite_master
         self.tab1 = QTableWidget()
         self.tabs.addTab(self.tab1, "Tab1 — sqlite_master")
 
-        # Tab2 — выборочный запрос имён объектов БД
         tab2_widget = QWidget()
         tab2_layout = QVBoxLayout(tab2_widget)
         self.btn1 = QPushButton("SELECT name FROM sqlite_master")
@@ -54,7 +51,6 @@ class MainWindow(QMainWindow):
         tab2_layout.addWidget(self.tab2)
         self.tabs.addTab(tab2_widget, "Tab2 — имена объектов")
 
-        # Tab3 — выбор таблицы и её колонки
         tab3_widget = QWidget()
         tab3_layout = QVBoxLayout(tab3_widget)
         controls = QHBoxLayout()
@@ -74,7 +70,6 @@ class MainWindow(QMainWindow):
         tab3_layout.addWidget(self.tab3)
         self.tabs.addTab(tab3_widget, "Tab3 — выбранная колонка")
 
-        # Tab4 — структура выбранной таблицы
         tab4_widget = QWidget()
         tab4_layout = QVBoxLayout(tab4_widget)
         self.btn2 = QPushButton("Показать структуру выбранной таблицы")
@@ -84,7 +79,6 @@ class MainWindow(QMainWindow):
         tab4_layout.addWidget(self.tab4)
         self.tabs.addTab(tab4_widget, "Tab4 — структура")
 
-        # Tab5 — первые записи выбранной таблицы
         tab5_widget = QWidget()
         tab5_layout = QVBoxLayout(tab5_widget)
         self.btn3 = QPushButton("Показать первые записи выбранной таблицы")
@@ -262,7 +256,6 @@ class MainWindow(QMainWindow):
         safe_table = self.current_table.replace('"', '""')
         headers, rows = self.run_query(f'SELECT * FROM "{safe_table}" LIMIT 100')
         self.fill_table(self.tab5, headers, rows)
-
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
