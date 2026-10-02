@@ -9,34 +9,26 @@ from PyQt5.QtCore import Qt
 import cl1
 import cl2
 
-
 class Some(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Лабораторная работа №2 - Конвертер температуры")
         self.setFixedSize(360, 220)
-
-        # Создаём объекты классов с сигналами из cl1 и cl2
         self.celsius = cl1.Celsius()
         self.fahrenheit = cl2.Fahrenheit()
-
         self.updating = False
 
         central = QWidget()
         self.setCentralWidget(central)
-
-        # Поле "Цельсий" 
         self.c_label = QLabel("Цельсий (°C):")
         self.c_input = QLineEdit()
         self.c_input.setValidator(QDoubleValidator(-273.15, 1e6, 2))
         self.c_input.setText("0")
 
-        # Поле "Фаренгейт" 
         self.f_label = QLabel("Фаренгейт (°F):")
         self.f_input = QLineEdit()
         self.f_input.setValidator(QDoubleValidator(-459.67, 1e6, 2))
 
-        # Поле "Кельвин" 
         self.k_label = QLabel("Кельвин (K):")
         self.k_input = QLineEdit()
         self.k_input.setValidator(QDoubleValidator(0.0, 1e6, 2))
@@ -59,19 +51,13 @@ class Some(QMainWindow):
 
         central.setLayout(layout)
 
-        # Подключение сигналов виджетов к слотам окна
         self.c_input.textChanged.connect(self.on_celsius_changed)
         self.f_input.textChanged.connect(self.on_fahrenheit_changed)
         self.k_input.textChanged.connect(self.on_kelvin_changed)
-
-        # Подключение кастомных сигналов классов cl1/cl2 к слотам окна 
         self.celsius.celsiusChanged.connect(self.on_model_celsius_changed)
         self.fahrenheit.fahrenheitChanged.connect(self.on_model_fahrenheit_changed)
-
-        # Инициализация полей на основе стартового значения в Цельсиях
         self.on_celsius_changed(self.c_input.text())
 
-    # Слоты интерфейса
     def on_celsius_changed(self, text: str):
         """Слот: пользователь изменил поле °C."""
         if self.updating:
@@ -97,7 +83,6 @@ class Some(QMainWindow):
         kelvin = self._to_float(text)
         self._update_all(kelvin, skip="K")
 
-    # Слоты, подключённые к кастомным сигналам cl1/cl2
     def on_model_celsius_changed(self, value: float):
         """Слот, реагирующий на сигнал celsiusChanged класса Celsius."""
         pass  
@@ -106,7 +91,6 @@ class Some(QMainWindow):
         """Слот, реагирующий на сигнал fahrenheitChanged класса Fahrenheit."""
         pass
 
-    # Вспомогательные методы 
     def _to_float(self, text: str) -> float:
         text = text.replace(",", ".").strip()
         try:
