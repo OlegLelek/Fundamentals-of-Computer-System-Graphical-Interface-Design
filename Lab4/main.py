@@ -6,7 +6,6 @@ from PyQt5.QtCore import QObject, QTimer, pyqtSlot
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtQml import QQmlApplicationEngine
 
-
 class Interface(QObject):
     def __init__(self):
         super().__init__()
@@ -41,7 +40,6 @@ class Interface(QObject):
             print(f"Рисунок сохранён: {filepath}")
         else:
             print(f"Не удалось сохранить рисунок: {filepath}")
-
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
