@@ -1,8 +1,6 @@
 from PyQt5.QtCore import QObject, pyqtSignal
 
 class Fahrenheit(QObject):
-    # Сигнал испускается при изменении значения в градусах Фаренгейта.
-    # Несёт float - новое значение в °F.
     fahrenheitChanged = pyqtSignal(float)
 
     ZERO_CELSIUS_IN_KELVIN = 273.15
